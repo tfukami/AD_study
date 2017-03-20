@@ -3,3 +3,6 @@
 t/
 .project
 .DS_Store
+__*
+aws_test.sh
+*memo.txt
