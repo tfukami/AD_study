@@ -1,0 +1,44 @@
+with jst_date as (
+  select
+    device_id,
+    created_at,
+    extract(epoch from created_at + interval('9 hours')) as jst_epoch
+), diff_min as (    
+  select 
+    l.device_id,
+    l.created_at,
+    l.key,
+    r3.name,
+    r3.latitude,
+    r3.longitude,
+    (jst_epoch - lag(jst_epoch, 1) over(partition by device_id order by created_at)) / 60 as diff_min 
+  from hourly_user_contexts as l
+    left join jst_date as r1
+      on l.device_id = r1.device_id and
+        l.jst_date between date('2017-03-01') and date('2017-03-02') and
+        l.key = xxx
+    left join region_places as r2 
+      on l.key = r2.place_id
+    left join places as r3 on l.key = r3.id
+)
+select distinct
+  device_id,
+  key,
+  name,
+  latitude,
+  longitude
+from diff_min 
+where diff_min >= 3 --3分以上滞在したユーザ
+
+
+
+select 
+  l.device_id,
+  lag(created_at, 1) over(partition by device_id order by created_at) as 
+from raw_userlocation_log as l
+where created_at between '2017-03-01 15:00:00' and '2017-03-02 15:00:00'
+
+
+
+プログラマのためのSQL
+達人に学ぶSQL徹底指南書

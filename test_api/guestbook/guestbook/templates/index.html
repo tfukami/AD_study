@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>guestbook</title>
+    <link rel="stylesheet" href="/static/main.css" type="text/css"> <!--ling tagg add -->
+  </head>
+  <body>
+    <h1>guestbook</h1>
+    <form action="/post" method="post">
+      <p>please write</p>
+      <table>
+        <tr>
+	  <th>name</th>
+	  <td>
+	    <input type="text" size="20" name="name">
+	  </td>
+	</tr>
+	<tr>
+	  <th>comment</th>
+	  <td>
+	    <textarea rows="5" cols="40" name="comment"></textarea>
+          </td>
+	</tr>
+      </table>
+      <p><button type="submit">submit</button></p>
+    </form>
+    <div class="entries-area"> <!-- add class attribute to div tag -->
+      <h2>already written</h2>
+      {% for greeting in greeting_list %}
+        <h3>{{ greeting.name }} wrote at ({{ greeting.create_at|datetime_fmt }}):</h3>
+        <p>{{ greeting.comment|nl2br }} </p>
+      {% endfor %}
+    </div>
+  </body>
+</html>
