@@ -39,6 +39,11 @@ from raw_userlocation_log as l
 where created_at between '2017-03-01 15:00:00' and '2017-03-02 15:00:00'
 
 
+https://docs.oracle.com/cd/E16338_01/server.112/b56299/functions059.htm
+https://www.postgresql.jp/document/7.2/user/functions-datetime.html
+http://qiita.com/HirofumiYashima/items/f5cbc59fbadda0ca4359
+http://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_WF_LAG.html
+
 
 プログラマのためのSQL
 達人に学ぶSQL徹底指南書
