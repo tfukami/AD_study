@@ -48,6 +48,7 @@ https://docs.oracle.com/cd/E16338_01/server.112/b56299/functions059.htm
 https://www.postgresql.jp/document/7.2/user/functions-datetime.html
 http://qiita.com/HirofumiYashima/items/f5cbc59fbadda0ca4359
 http://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_WF_LAG.html
+https://openbook4.me/projects/183/sections/1369
 
 
 プログラマのためのSQL
